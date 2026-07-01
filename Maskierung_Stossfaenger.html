@@ -548,6 +548,10 @@ function stopTimer(k) {
   document.getElementById(k==='proc'?'tb1_stop':'tb2_stop').style.opacity = '0.4';
   document.getElementById(k==='proc'?'tb1_stop':'tb2_stop').classList.remove('running');
   document.getElementById(k==='proc'?'pz_disp':'pa_disp').value = fmt(timerSec[k]);
+  // Wird die Prozesszeit gestoppt, startet automatisch die Pausenzeit
+  // (und umgekehrt – da startTimer den jeweils anderen stoppt, gilt
+  //  das auch in die andere Richtung als Stafette)
+  if (k === 'proc' && !timerRun.pause) startTimer('pause');
 }
 
 // -------------------------------------------------------------------
