@@ -793,8 +793,19 @@ function getChecked() {
 // Wird ausgelöst wenn auf "+ Eintrag speichern" geklickt wird.
 // -------------------------------------------------------------------
 function saveEntry() {
-  const produkt = g('produkt');
-  if (!produkt) { alert('Bitte Produkt / Bauteil ausw\u00e4hlen.'); return; }
+  const produkt    = g('produkt');
+  const schicht    = g('schicht');
+  const abteilung  = g('abteilung');
+  const prozessart = g('prozessart');
+  const bereich    = g('bereich');
+  const methode    = g('methode');
+
+  if (!schicht)    { alert('Bitte Schicht ausw\u00e4hlen.');        return; }
+  if (!abteilung)  { alert('Bitte Abteilung ausw\u00e4hlen.');      return; }
+  if (!produkt)    { alert('Bitte Produktname ausw\u00e4hlen.');    return; }
+  if (!prozessart) { alert('Bitte Maskierungsart ausw\u00e4hlen.'); return; }
+  if (!bereich)    { alert('Bitte Bauteil ausw\u00e4hlen.');        return; }
+  if (!methode)    { alert('Bitte Seite ausw\u00e4hlen.');          return; }
 
   entries.push({
     id: Date.now(),
